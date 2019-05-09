@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
 }
@@ -6,10 +12,34 @@ body {
   font-family: 'Parisienne', cursive;
 }
 
-.text-gold {
+.text-indie {
+  font-family: 'Indie Flower', cursive;
+}
+
+.text-goldish {
   color: rgb(240, 186, 37)
+}
+
+.text-black {
+  color: rgb(233, 176, 33)
 }
 
 .letter-spacing {
   letter-spacing: 0.6rem;
+}
+
+.header-hero {
+  min-height: calc(100vh - 67px);
+  background: linear-gradient(rgba(0, 0, 0, 0.774), rgba(247, 30, 30, 0.411)), url("./images/bg-3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.header-error {
+  min-height: calc(100vh - 67px);
+  background: linear-gradient(rgba(0, 0, 0, 0.774), rgba(247, 30, 30, 0.411)), url("./images/error1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
