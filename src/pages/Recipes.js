@@ -1,24 +1,44 @@
 import React, { Component } from "react";
 import RecipeSearch from "../components/RecipeSearch";
 import Recipe from "../components/Recipe";
-import { recipeData } from "../data/tempList";
+// import { recipeData } from "../data/tempList";
 
 
 class Recipes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            recipes: recipeData
+            recipes: null
         };
     };
 
-
+    async componentDidMount() {
+        const data = await fetch(`https://www.food2fork.com/api/search?key=API_KEY&q=chicken%20breast&page=2`);
+        const response = await data.json();
+        
+        this.setState({
+            recipes: response.recipes
+        });
+    };
 
     render() {
         const { recipes } = this.state;
-        const recipesList = recipes.map(recipe => {
+        const recipesList = recipes ? (
+            recipes.map(recipe => {
             return <Recipe key={recipe.recipe_id} recipe={recipe}/>
-        })
+            })
+        ) : (
+            <div className="container">
+                <div className="row">
+                    <div className="col-10 mx-auto col-md-6 my-3">
+                        <h2 className="text-orange text-center">
+                            loading recipe...
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        )
+
         return(
             <div>
                 <RecipeSearch search={this.handleSearch}/>
@@ -29,9 +49,7 @@ class Recipes extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div>
-                            {recipesList}
-                        </div>
+                        {recipesList}
                     </div>    
                 </div>
             </div>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import {recipeData} from "../data/tempDetails";
 import { Link } from "react-router-dom";
 import "../App.css";
 
@@ -7,12 +6,23 @@ class SingleRecipes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            recipe: recipeData
+            recipe: null
         };
         console.log(props.match.params.id)
     };
 
-    
+    async componentDidMount() {
+        const { id } = this.props.match.params;
+        const data = await fetch(`https://www.food2fork.com/api/get?key=API_KEY&rId=${id}`);
+        const response = await data.json();
+
+
+        console.log(response);
+        this.setState({
+            recipe: response.recipe
+        });
+    };
+
     render() {
         const {recipe} = this.state;
         const recipeInfo = recipe ? (
@@ -37,7 +47,7 @@ class SingleRecipes extends Component {
                                 )
                             })}
                         </ul>
-                        <a href={recipe.publisher_url} target="_blank" rel="noopenernoreferrer" className="btn btn-success mt-2 mx-2"><i className="fas fa-user"></i> publisher</a>
+                        <a href={recipe.publisher_url} target="_blank" rel="noopener noreferrer" className="btn btn-success mt-2 mx-2"><i className="fas fa-user"></i> publisher</a>
                         <a href={recipe.source_url} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-2 mx-2"><i className="fas fa-globe"></i> Page Url </a>
                     </div>
                 </div>
