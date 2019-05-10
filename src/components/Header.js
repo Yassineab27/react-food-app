@@ -8,7 +8,7 @@ const Header = (props) => {
             <div className="container-fluid">
                 <div className={`row align-items-center ${props.style}`}>
                     <div className="col text-center">
-                        <h1 className="display-3 letter-spacing text-black text-indie">
+                        <h1 className="display-3 letter-spacing text-goldish text-indie">
                             {props.text}
                         </h1>
                         <Link to="/recipes" className="text-uppercase btn btn-outline-warning btn-lg mt-5">
