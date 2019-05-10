@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import RecipeSearch from "../components/RecipeSearch";
 import Recipe from "../components/Recipe";
-// import { recipeData } from "../data/tempList";
-
 
 class Recipes extends Component {
     constructor(props) {
