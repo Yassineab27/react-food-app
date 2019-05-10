@@ -50,5 +50,8 @@ body {
 
 .card-img {
   height: 14rem;
+}
 
+.Singlecard-img {
+  max-height: 30rem
 }
