@@ -42,8 +42,9 @@ class SingleRecipes extends Component {
                     <div className="col-10 mx-auto col-md-6 my-3">
                         <h3 className="text-goldish">{recipe.title}</h3>
                         <h6 className="text-dark" style={{fontStyle: "italic"}}>published by <strong>{recipe.publisher}</strong></h6>
+                        <h4 className="ranking text-goldish">{recipe.social_rank.toFixed(2)} <i className="fas fa-star star-icon"></i></h4>
                         <ul className="list-group mb-4">
-                            <h2 className="mt-3 mb-4 text-goldish">Ingredients</h2>
+                            <h2 className="mt-3 mb-4 text-grey">Ingredients</h2>
                             {recipe.ingredients.map((item, index) => {
                                 return(
                                     <li key={index} className="list-group-item text-dark">

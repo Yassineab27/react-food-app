@@ -16,6 +16,7 @@ class Recipes extends Component {
             const data = await fetch(`https://www.food2fork.com/api/search?key=${process.env.REACT_APP_API_KEY}&q=chicken%20breast&page=2`);
             const response = await data.json();
             
+            console.log(response)
             this.setState({
                 recipes: response.recipes
             });
