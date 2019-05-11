@@ -30,15 +30,13 @@ class Recipes extends Component {
             const data = await fetch(`https://www.food2fork.com/api/search?key=${process.env.REACT_APP_API_KEY}&q=${search}`);
             const response = await data.json();
             
-            console.log(response)
             if(!response.recipes.length) {
                 return this.setState({
-                    error: true
+                    error: true,
                 });
             }
             this.setState({
-                recipes: response.recipes,
-                error: false
+                recipes: response.recipes
             });
         }
         catch(err) {
