@@ -99,3 +99,7 @@ body {
 .buttons {
   margin: 20px auto;
 }
+
+.buttons-disabled{
+  display: none;
+}

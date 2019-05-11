@@ -101,13 +101,13 @@ class Recipes extends Component {
                             {title}
                         </div>
                     </div>
-                    <div className="buttons">
-                        <button className="btn btn-success mx-1" value="1" onClick={this.handlePage}>1</button>
-                        <button className="btn btn-success mx-1" value="2" onClick={this.handlePage}>2</button>
-                        <button className="btn btn-success mx-1" value="3" onClick={this.handlePage}>3</button>
-                        <button className="btn btn-success mx-1" value="4" onClick={this.handlePage}>4</button>
-                        <button className="btn btn-success mx-1" value="5" onClick={this.handlePage}>5</button>
-                        <button className="btn btn-success mx-1" onClick={this.handlePageNext}>Next</button>
+                    <div className={this.state.recipes ? "buttons" : "buttons-disabled"}>
+                        <button className="btn btn-success mr-1" value="1" onClick={this.handlePage}>1</button>
+                        <button className="btn btn-success mr-1" value="2" onClick={this.handlePage}>2</button>
+                        <button className="btn btn-success mr-1" value="3" onClick={this.handlePage}>3</button>
+                        <button className="btn btn-success mr-1" value="4" onClick={this.handlePage}>4</button>
+                        <button className="btn btn-success mr-1" value="5" onClick={this.handlePage}>5</button>
+                        <button className="btn btn-success mr-1" onClick={this.handlePageNext}>Next</button>
                     </div>
                     <div className="row">
                         {recipesList}

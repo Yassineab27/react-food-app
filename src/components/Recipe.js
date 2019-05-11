@@ -14,7 +14,7 @@ const Recipe = (props) => {
                     <h5 className="text-grey text-center" style={{fontStyle: "italic"}}>provided by <strong>{publisher}</strong></h5>
                 </div>
                 <div className="card-footer">
-                    <Link to={`/recipes/${recipe_id}`} className="btn btn-outline-success mr-3">Details <i className="fas fa-info"></i></Link>
+                    <Link to={`/recipes/${recipe_id}`} target="_blank" rel="noopener noreferrer" className="btn btn-outline-success mr-3">Details <i className="fas fa-info"></i></Link>
                     <a href={source_url} target="_blank" rel="noopener noreferrer" className="btn btn-outline-warning">Page Url <i className="fas fa-globe"></i></a>
                 </div>
             </div>
