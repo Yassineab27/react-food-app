@@ -11,12 +11,17 @@ class Recipes extends Component {
     };
 
     async componentDidMount() {
-        const data = await fetch(`https://www.food2fork.com/api/search?key=API_KEY&q=chicken%20breast&page=2`);
-        const response = await data.json();
-        
-        this.setState({
-            recipes: response.recipes
-        });
+        try {
+            const data = await fetch(`https://www.food2fork.com/api/search?key=${process.env.REACT_APP_API_KEY}&q=chicken%20breast&page=2`);
+            const response = await data.json();
+            
+            this.setState({
+                recipes: response.recipes
+            });
+        }
+        catch(err) {
+            console.log(err)
+        }
     };
 
     render() {

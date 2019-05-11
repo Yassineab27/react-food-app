@@ -36,7 +36,7 @@ class RecipeSearch extends Component {
                                 id="search"
                                 name="search"
                                 value={this.state.search}
-                                placeholder="chicken,onion,carrots..."
+                                placeholder="ex: chicken,onion,carrots..."
                                 onChange={this.handleChange}/>
                                 <div className="input-group-append">
                                     <button type="submit" className="input-group-text bg-goldish text-dark">

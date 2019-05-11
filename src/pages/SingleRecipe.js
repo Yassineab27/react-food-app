@@ -12,15 +12,20 @@ class SingleRecipes extends Component {
     };
 
     async componentDidMount() {
-        const { id } = this.props.match.params;
-        const data = await fetch(`https://www.food2fork.com/api/get?key=API_KEY&rId=${id}`);
-        const response = await data.json();
-
-
-        console.log(response);
-        this.setState({
-            recipe: response.recipe
-        });
+        try {
+            const { id } = this.props.match.params;
+            const data = await fetch(`https://www.food2fork.com/api/get?key=${process.env.REACT_APP_API_KEY}&rId=${id}`);
+            const response = await data.json();
+    
+    
+            console.log(response);
+            this.setState({
+                recipe: response.recipe
+            });
+        }
+        catch(err) {
+            console.log(err)
+        }
     };
 
     render() {

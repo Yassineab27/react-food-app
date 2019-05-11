@@ -6,7 +6,7 @@
 .pnp.js
 /src/data
 /src/images
-
+.env.development
 
 # testing
 /coverage

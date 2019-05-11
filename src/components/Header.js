@@ -11,7 +11,7 @@ const Header = (props) => {
                         <h1 className="display-3 letter-spacing text-goldish text-indie">
                             {props.text}
                         </h1>
-                        <Link to="/recipes" className="text-uppercase btn btn-outline-warning btn-lg mt-5">
+                        <Link to="/recipes" className="text-indie btn btn-outline-warning btn-lg mt-5">
                             Search Recipes
                         </Link>
                     </div>
