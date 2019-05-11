@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import RecipeSearch from "../components/RecipeSearch";
 import Recipe from "../components/Recipe";
+import "../App.css";
 
 class Recipes extends Component {
     constructor(props) {
@@ -72,7 +73,7 @@ class Recipes extends Component {
             <h1 className="text-dark text-indie">Recipe List</h1>
         )
         return(
-            <div>
+            <div className={this.state.recipes ? "recipesPage-bg" : ""}>
                 <RecipeSearch search={this.handleSearch}/>
                 <div className="container py-5">
                     <div className="row">

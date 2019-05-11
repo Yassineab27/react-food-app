@@ -71,7 +71,7 @@ class SingleRecipes extends Component {
             </div>
         )
         return(
-            <div>
+            <div className={this.state.recipe ? "recipesPage-bg" : ""}>
                 {recipeInfo}
             </div>
         )
