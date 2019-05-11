@@ -8,13 +8,18 @@ class Recipes extends Component {
         super(props);
         this.state = {
             recipes: null,
-            error: false
+            error: false,
+            page: 1
         };
     };
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.fetchData();
+    };
+
+    fetchData = async () => {
         try {
-            const data = await fetch(`https://www.food2fork.com/api/search?key=${process.env.REACT_APP_API_KEY}&q=chicken%20breast&page=2`);
+            const data = await fetch(`https://www.food2fork.com/api/search?key=${process.env.REACT_APP_API_KEY}&page=${this.state.page}`);
             const response = await data.json();
             
             console.log(response)
@@ -45,6 +50,21 @@ class Recipes extends Component {
             console.log(err)
         }
     };
+
+    handlePage = (e) => {
+        this.setState({
+            page: e.target.value
+        }, this.fetchData)
+    };
+
+    handlePageNext = (e) => {
+        this.setState(prevState => {
+            return {
+                page: prevState.page + 1
+            }
+        });
+        this.fetchData();
+    }
 
     render() {
         const { recipes, error } = this.state;
@@ -80,6 +100,14 @@ class Recipes extends Component {
                         <div className="col-10 mx-auto col-md-6 text-center text-uppercase mb-3">
                             {title}
                         </div>
+                    </div>
+                    <div className="buttons">
+                        <button className="btn btn-success mx-1" value="1" onClick={this.handlePage}>1</button>
+                        <button className="btn btn-success mx-1" value="2" onClick={this.handlePage}>2</button>
+                        <button className="btn btn-success mx-1" value="3" onClick={this.handlePage}>3</button>
+                        <button className="btn btn-success mx-1" value="4" onClick={this.handlePage}>4</button>
+                        <button className="btn btn-success mx-1" value="5" onClick={this.handlePage}>5</button>
+                        <button className="btn btn-success mx-1" onClick={this.handlePageNext}>Next</button>
                     </div>
                     <div className="row">
                         {recipesList}
