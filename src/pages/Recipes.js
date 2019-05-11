@@ -6,7 +6,8 @@ class Recipes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            recipes: null
+            recipes: null,
+            error: false
         };
     };
 
@@ -24,8 +25,29 @@ class Recipes extends Component {
         }
     };
 
+    handleSearch = async (search) => {
+        try {
+            const data = await fetch(`https://www.food2fork.com/api/search?key=${process.env.REACT_APP_API_KEY}&q=${search}`);
+            const response = await data.json();
+            
+            console.log(response)
+            if(!response.recipes.length) {
+                return this.setState({
+                    error: true
+                });
+            }
+            this.setState({
+                recipes: response.recipes,
+                error: false
+            });
+        }
+        catch(err) {
+            console.log(err)
+        }
+    };
+
     render() {
-        const { recipes } = this.state;
+        const { recipes, error } = this.state;
         const recipesList = recipes ? (
             recipes.map(recipe => {
             return <Recipe key={recipe.recipe_id} recipe={recipe}/>
@@ -41,19 +63,27 @@ class Recipes extends Component {
                 </div>
             </div>
         )
-
+        
+        const title = error ? (
+            <>
+                <h1 className="text-dark text-indie">Sorry, but your search did not return any recipe. Please try again</h1>
+                <p className="text-dark text-indie">*press search icon for the most popular recipes*</p>
+            </>
+        ) : (
+            <h1 className="text-dark text-indie">Recipe List</h1>
+        )
         return(
             <div>
                 <RecipeSearch search={this.handleSearch}/>
                 <div className="container py-5">
                     <div className="row">
                         <div className="col-10 mx-auto col-md-6 text-center text-uppercase mb-3">
-                            <h1 className="text-dark text-indie">Recipe List</h1>
+                            {title}
                         </div>
                     </div>
                     <div className="row">
                         {recipesList}
-                    </div>    
+                    </div>
                 </div>
             </div>
         )
