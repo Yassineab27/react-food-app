@@ -77,7 +77,7 @@ class Recipes extends Component {
                 <div className="row">
                     <div className="col-10 mx-auto col-md-6 my-3">
                         <h2 className="text-orange text-center">
-                            loading recipe...
+                            <i className="fas fa-spinner fa-spin"></i>
                         </h2>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ class Recipes extends Component {
                 <p className="text-dark text-indie">*press search icon for the most popular recipes*</p>
             </>
         ) : (
-            <h1 className="text-dark text-indie">Recipe List</h1>
+            <h1 className={this.state.recipes ? "text-dark text-indie" : "buttons-disabled"}>Recipe List</h1>
         )
         return(
             <div className={this.state.recipes ? "recipesPage-bg" : ""}>

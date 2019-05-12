@@ -64,7 +64,7 @@ class SingleRecipes extends Component {
                 <div className="row">
                     <div className="col-10 mx-auto col-md-6 my-3">
                         <h2 className="text-orange text-center">
-                            loading recipe...
+                            <i className="fas fa-spinner fa-spin"></i>
                         </h2>
                     </div>
                 </div>
