@@ -6,7 +6,7 @@ const Nav = (props) => {
     return(
         <nav className="navbar navbar-expand-sm navbar-light bg-light">
             <Link to="/" className="navbar-brand text-parisienne ml-5">
-                <h3>React Food</h3>
+                <div className="navBrand">React Food</div>
             </Link>
             <div className="collapse navbar-collapse show ml-sm-5">
                 <ul className="navbar-nav ml-auto mr-5">
